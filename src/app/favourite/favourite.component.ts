@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-favourite',
   templateUrl: './favourite.component.html',
-  styleUrls: ['./favourite.component.css']
+  styleUrls: ['./favourite.component.css'],
+  inputs: ['isFavouriteToo']
 })
 export class FavouriteComponent implements OnInit {
 
-  isFavourite: boolean = false;
-  titleText: string;
+  @Input() isFavourite: boolean;
+  @Input('is-dash-favourite') isDashFavourite: boolean;
+  isFavouriteToo: boolean;
+  @Output('change') click = new EventEmitter(); //the 'change' here links to teh component html property
 
   onClick() {
     this.isFavourite = !this.isFavourite;
+    this.isFavouriteToo = !this.isFavouriteToo;
+    this.isDashFavourite = !this.isDashFavourite;
+    this.click.emit({ newValue: this.isFavourite });
   }
 
   constructor() { }
@@ -19,4 +25,8 @@ export class FavouriteComponent implements OnInit {
   ngOnInit() {
   }
 
+}
+
+export interface FavouriteChangedEventArgs {
+  newValue: boolean
 }

@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    BootstrapPanelComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule

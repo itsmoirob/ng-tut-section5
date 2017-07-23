@@ -5,4 +5,14 @@
   [class.glyphicon-star-empty]="!isFavourite"
   (click)="onClick()"
   ></span>
+  <span class="glyphicon" 
+  [class.glyphicon-star]="isFavouriteToo"
+  [class.glyphicon-star-empty]="!isFavouriteToo"
+  (click)="onClick()"
+  ></span>
+  <span class="glyphicon" 
+  [class.glyphicon-star]="isDashFavourite"
+  [class.glyphicon-star-empty]="!isDashFavourite"
+  (click)="onClick()"
+  ></span>
 </div>
