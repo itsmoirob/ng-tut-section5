@@ -1,8 +1,53 @@
 <div>
-  <h3>Favourite exam</h3>
-  <span class="glyphicon" 
-  [class.glyphicon-star]="isFavourite"
-  [class.glyphicon-star-empty]="!isFavourite"
-  (click)="onClick()"
-  ></span>
+  <h3>Ng if</h3>
+  <div *ngIf="courses.length > 0; else noCourses">
+    Your list of courses
+  </div>
+  <ng-template #noCourses>
+    No courses
+  </ng-template>
 </div>
+
+<div>
+  <h3>Ng if 2</h3>
+  <div *ngIf="courses.length > 0; then courses2 else noCourses2"></div>
+  <ng-template #courses2>
+    Your list of courses
+  </ng-template>
+  <ng-template #noCourses2>
+    No courses
+  </ng-template>
+</div>
+
+<div>
+  <h3>hidden </h3>
+  <p>"hidden" still shows the element in the dom, ngif wont</p>
+  <div [hidden]="courses.length === 0">Your courses list</div>
+  <div [hidden]="courses.length > 0">No courses</div>
+</div>
+
+<div>
+  <h3>ngSwitchCase</h3>
+  <ul class="nav nav-pills">
+    <li [class.active]="viewMode === 'map'"><a (click)="viewMode = 'map'">Map view</a></li>
+    <li [class.active]="viewMode === 'list'"><a (click)="viewMode = 'list'">List view</a></li>
+  </ul>
+  <div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map view content</div>
+    <div *ngSwitchCase="'list'">List view content</div>
+    <div *ngSwitchDefault>Other view content</div>
+  </div>
+</div>
+
+<div>
+  <h3>ng for</h3>
+  <ul>
+    <li *ngFor="let course of moreCourses; even as isEven">
+      {{course.name}}
+      <button (click) = "onRemove(course)">Remove</button>
+      <button (click) = "onChange(course)">Change</button>
+    </li>
+  </ul>
+</div>
+
+<button (click)="onAdd()">Add</button>

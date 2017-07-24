@@ -9,9 +9,31 @@ export class FavouriteComponent implements OnInit {
 
   isFavourite: boolean = false;
   titleText: string;
+  courses: number[] = [];
+  viewMode: string;
+  moreCourses: [{ id: number, name: string }] = [
+    { id: 1, name: 'Course 1' },
+    { id: 2, name: 'Course 2' },
+    { id: 3, name: 'Course 3' },
+    { id: 4, name: 'Course 4' }
+  ]
 
   onClick() {
     this.isFavourite = !this.isFavourite;
+  }
+
+  onAdd() {
+    this.moreCourses.push({ id: 5, name: 'Course 5' });
+  }
+
+  onRemove(course) {
+    let index = this.moreCourses.indexOf(course);
+    this.moreCourses.splice(index, 1);
+  }
+
+  onChange(course) {
+    course.name = 'Some new name';
+
   }
 
   constructor() { }
