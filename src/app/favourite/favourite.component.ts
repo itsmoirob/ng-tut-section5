@@ -33,7 +33,27 @@ export class FavouriteComponent implements OnInit {
 
   onChange(course) {
     course.name = 'Some new name';
+  }
 
+  serverCourses;
+  onLoad() {
+    this.serverCourses = [
+      { id: 1, name: 'Course 1' },
+      { id: 2, name: 'Course 2' },
+      { id: 3, name: 'Course 3' },
+      { id: 4, name: 'Course 4' }
+    ]
+  }
+
+  trackCourse(index, course) {
+    return course ? course.id : undefined;
+  }
+
+  canSave: boolean = true;
+
+  task = {
+    title: 'Reivew applications',
+    assignee: null
   }
 
   constructor() { }

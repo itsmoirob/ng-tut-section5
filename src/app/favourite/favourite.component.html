@@ -44,10 +44,60 @@
   <ul>
     <li *ngFor="let course of moreCourses; even as isEven">
       {{course.name}}
-      <button (click) = "onRemove(course)">Remove</button>
-      <button (click) = "onChange(course)">Change</button>
+      <button (click)="onRemove(course)">Remove</button>
+      <button (click)="onChange(course)">Change</button>
+    </li>
+  </ul>
+  <button (click)="onAdd()">Add</button>
+</div>
+
+
+<div>
+  <h3>ng for server</h3>
+  <button (click)="onLoad()">Load</button>
+  <ul>
+    <li *ngFor="let course of serverCourses; trackBy: trackCourse">
+      {{course.name}}
     </li>
   </ul>
 </div>
 
-<button (click)="onAdd()">Add</button>
+<div>
+  <h3>A method of using multiple ngclasses</h3>
+  <span class="glyphicon" [class.glyphicon-star]="isFavourite" [class.glyphicon-star-empty]="!isFavourite">
+  </span>
+  <p>or</p>
+   <span class="glyphicon" 
+  [ngClass]="{
+    'glyphicon-star': !isFavourite,
+    'glyphicon-star-empty': isFavourite
+  }">
+  </span> 
+</div>
+
+<div>
+  <h3>Using ngStyle</h3>
+  <button
+  [style.backgroundColor]="canSave ? 'blue' : 'green'"
+  [style.color]="canSave ? 'orange' : 'yellow'"
+  [style.fontWeight]="canSave ? 'bold' : 'normal'"
+  >
+    Save button {{canSave}}
+  </button>
+  <p>or</p>
+  <button
+  [ngStyle]="{
+    'backgroundColor': canSave ? 'blue' : 'green',
+  'color': canSave ? 'orange' : 'yellow',
+  'fontWeight': canSave ? 'bold' : 'normal'
+}"
+  >
+    Save button {{canSave}}
+  </button>
+</div>
+
+<div>
+  <h3>Safe traversal</h3>
+  <span *ngIf="task.assignee">{{task.assignee.name}}</span> or 
+  <span *ngIf="task.assignee?.name">{{task.assignee.name}}</span>
+</div>
