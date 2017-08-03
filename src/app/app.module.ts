@@ -25,13 +25,13 @@ import { AppErrorHandler } from './common/app-error-handler';
     InputFormatDirective,
     ZippyComponent,
     ContactFormComponent,
-    PostsComponent
+    PostsComponent,
+    SignupFormComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    SignupFormComponent,
-    CourseFormComponent,
     ReactiveFormsModule,
     HttpModule
   ],
