@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 import { LikeComponent } from './like/like.component';
+import { InputFormatDirective } from './input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FavouriteComponent,
     BootstrapPanelComponent,
-    LikeComponent
+    LikeComponent,
+    InputFormatDirective,
+    ZippyComponent
   ],
   imports: [
     BrowserModule
