@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FavouriteChangedEventArgs } from "./favourite/favourite.component";
+import { FavouriteChangedEventArgs } from './favourite/favourite.component';
 
 
 
@@ -15,15 +15,16 @@ export class AppComponent {
     isFavourite: false,
     isFavouriteToo: true,
     isDashFavourite: true
-  }
+  };
+    tweet: { body: string, likesCount: number, isLiked: boolean } = {
+    body: '...',
+    likesCount: 10,
+    isLiked: true
+  };
 
   onFavouriteChange(eventArgs: FavouriteChangedEventArgs) {
     console.log(`You changed something to ${eventArgs.newValue}`);
   }
 
-  tweet: { body: string, likesCount: number, isLiked: boolean } = {
-    body: '...',
-    likesCount: 10,
-    isLiked: true
-  }
+
 }
